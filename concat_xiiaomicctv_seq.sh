@@ -42,7 +42,7 @@ fi
 # Concatenate videos using FFmpeg
 output_file="concatenated_output.mp4"
 echo "Concatenating videos into $output_file..."
-ffmpeg -f concat -safe 0 -i "$temp_file" -c:v copy -c:a libmp3lame "$output_file" -y
+ffmpeg -f concat -safe 0 -i "$temp_file" -c:v copy -c:a copy -movflags +faststart "$output_file" -y
 
 # Check if FFmpeg command was successful
 if [ $? -eq 0 ]; then
